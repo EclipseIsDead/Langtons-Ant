@@ -1,3 +1,8 @@
+"""
+This file is Copyright (c) 2021 Siddarth Dagar, Daniel Zhu, Ryan Alizadeh, and Bradley Mathi.
+"""
+
+
 class Ant:
     """This is the ant."""
     commands: str
