@@ -13,11 +13,11 @@ pygame.display.set_caption('Deez nuts lmfao gottem')
 FPS = 60
 
 
-def main():
+def main(commands: str):
     """
     The main function responsible for running and simulating the ant's movements
     """
-    ant = Ant('up', (1, 1,))
+    ant = Ant(commands)
     board = Board(ant)
     run = True
     clock = pygame.time.Clock()
@@ -41,4 +41,14 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    while True:
+        data = input('Please input a sequence of commands in the format of LRLRRRL, for example,'
+                     + '\n' +
+                     'greater than 2 commands, or characters, in length:')
+        if not (len(data) >= 2):
+            print("Invalid command entered, not long enough.")
+            continue
+        else:
+            # we're happy with the value given
+            main(data)
+            break
