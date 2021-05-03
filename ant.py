@@ -44,29 +44,17 @@ class Ant:
 
         return mapping
 
-    def update_pos(self) -> None:
+    def update_pos(self, new_pos) -> None:
         """
-        This updates the ant's current position with the current direction it is facing.
+        This updates the ant's current position with the new one.
         """
-        x = self.pos[0]
-        y = self.pos[1]
+        self.pos = new_pos
 
-        if self.direction == 'N':
-            self.pos = (x, y + 1)
-        elif self.direction == 'S':
-            self.pos = (x, y - 1)
-        elif self.direction == 'E':
-            self.pos = (x + 1, y)
-        elif self.direction == 'W':
-            self.pos = (x - 1, y)
-        else:
-            raise Exception("Invalid Direction Present")
-
-    def update_direction(self) -> None:
+    def update_direction(self, new_dir) -> None:
         """
-        This updates the ant's current direction with the colour dictionary. This should then update
-        the ant's direction.
+        This updates the ant's current direction with the new one.
         """
+<<<<<<< HEAD
         directions = ['N', 'E', 'S', 'W']
         # get board color at self.position
         curr_color = (0, 0, 0)
@@ -80,3 +68,6 @@ class Ant:
         # set board color to curr_color + gradient
         self.direction = new_dir
         return None
+=======
+        self.direction = new_dir
+>>>>>>> main

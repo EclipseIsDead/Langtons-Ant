@@ -9,7 +9,7 @@ from ant import Ant
 from constants import *
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption('Deez nuts lmfao gottem')
+pygame.display.set_caption('Langton\'s Ant')
 FPS = 60
 
 
