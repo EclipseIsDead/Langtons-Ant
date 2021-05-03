@@ -7,9 +7,10 @@ from constants import *
 
 
 class Board:
-    """This is the Board Class
+    """
+    This is the Board Class
 
-     Instnace Attributes:
+     Instance Attributes:
         - ant: The type of ant that will be moving on the board
     """
 
@@ -18,7 +19,7 @@ class Board:
 
     def draw_board(self, rows: int, cols: int, window) -> None:
         """
-        A frunction that draws the intial board
+        A function that draws the initial board
         """
         window.fill(pygame.color.Color(255, 178, 102))
 

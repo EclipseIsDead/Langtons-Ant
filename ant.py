@@ -79,4 +79,3 @@ class Ant:
 
         # set board color to curr_color + gradient
         self.direction = new_dir
-        return None
