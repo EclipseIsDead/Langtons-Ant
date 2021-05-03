@@ -34,12 +34,12 @@ class Ant:
         :param commands:
         :return:
         """
-        gradient = 255 // (len(commands) - 1)
+        gradient = 0xffffff // (len(commands) - 1)
         mapping = {}
 
-        for command in range(0, len(commands)):
-            colour = gradient * command
-            mapping[(colour, colour, colour)] = commands[command]
+        for i, command in enumerate(commands):
+            colour = gradient * i
+            mapping[colour] = command
 
         return mapping
 
@@ -67,3 +67,6 @@ class Ant:
         the ant's direction.
         """
         return None
+
+langton = Ant()
+print(langton)
