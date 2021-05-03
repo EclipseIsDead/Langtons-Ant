@@ -18,7 +18,7 @@ class Board:
 
     def __init__(self, ant: Ant) -> None:
         self.ant = ant
-        self.arr = constants.STARTING_BOARD
+        self.arr = STARTING_BOARD
 
     def draw_board(self, rows: int, cols: int, window) -> None:
         """

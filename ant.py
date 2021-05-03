@@ -16,7 +16,7 @@ class Ant:
 
     def __init__(self, commands: str = 'RL', pos: tuple = (0, 0)):
         self.commands = commands
-        self.gradient = 255 // (len(commands) - 1)
+        self.gradient = 255 // (len(commands) - 1) # this needs to be updated to hex
         self.pos = pos
         self.direction = random.choice(['N', 'S', 'E', 'W'])
         self.colours = self._get_colour_construction(commands)
@@ -49,14 +49,12 @@ class Ant:
         This updates the ant's current position with the new one.
         """
         self.pos = new_pos
-        return None
 
     def update_direction(self, new_dir) -> None:
         """
         This updates the ant's current direction with the new one.
         """
         self.direction = new_dir
-        return None
 
     def get_next_color(self, color) -> Any:
         """
