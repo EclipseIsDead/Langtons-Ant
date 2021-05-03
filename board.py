@@ -24,16 +24,16 @@ class Board:
         """
         A function that draws the initial board
         """
-        window.fill(pygame.color.Color(255, 178, 102))
+        window.fill(pygame.Color("#3A3A3A"))
 
         square_size = WIDTH // rows
 
         for row in range(rows):
             for col in range(cols):
-                pygame.draw.rect(window, pygame.color.Color(153, 76, 0), (row * square_size,
-                                                                          col * square_size,
-                                                                          square_size,
-                                                                          square_size), LINE_THICC)
+                pygame.draw.rect(window, pygame.Color("#5D5D5D"), (row * square_size,
+                                                                   col * square_size,
+                                                                   square_size,
+                                                                   square_size), LINE_THICC)
 
     def draw_pieces(self, rows: int, cols: int, board: list[list], window) -> None:
         """
@@ -43,12 +43,11 @@ class Board:
 
         for row in range(rows):
             for col in range(cols):
-                if board[row][col] == 'black':
-                    pygame.draw.rect(window, pygame.color.Color(153, 76, 0),
-                                     (col * square_size + LINE_THICC,
-                                      row * square_size + LINE_THICC,
-                                      square_size - (2 * LINE_THICC),
-                                      square_size - (2 * LINE_THICC)), 0)
+                pygame.draw.rect(window, pygame.Color(board[row][col]),
+                                 (col * square_size + LINE_THICC,
+                                  row * square_size + LINE_THICC,
+                                  square_size - (2 * LINE_THICC),
+                                  square_size - (2 * LINE_THICC)), 0)
 
     def draw_ant(self) -> None:
         """
@@ -85,7 +84,7 @@ class Board:
         y = ant.pos[1]
         directions = ['N', 'E', 'S', 'W']
 
-        arr_midpoint = len(self.arr) // 2 # assumes that self.arr is a square of odd length
+        arr_midpoint = len(self.arr) // 2  # assumes that self.arr is a square of odd length
         curr_color = self.arr[arr_midpoint + x][arr_midpoint + y]
         index = directions.index(ant.direction)
 
