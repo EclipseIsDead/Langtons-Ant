@@ -12,9 +12,11 @@ class Ant:
     pos: tuple
     colours: dict
     direction: str
+    gradient: int
 
     def __init__(self, commands: str = 'RL', pos: tuple = (0, 0)):
         self.commands = commands
+        self.gradient = 255 // (len(commands) - 1)
         self.pos = pos
         self.direction = random.choice(['N', 'S', 'E', 'W'])
         self.colours = self._get_colour_construction(commands)
@@ -34,11 +36,10 @@ class Ant:
         :param commands:
         :return:
         """
-        gradient = 255 // (len(commands) - 1)
         mapping = {}
 
         for command in range(0, len(commands)):
-            colour = gradient * command
+            colour = self.gradient * command
             mapping[(colour, colour, colour)] = commands[command]
 
         return mapping
@@ -66,4 +67,16 @@ class Ant:
         This updates the ant's current direction with the colour dictionary. This should then update
         the ant's direction.
         """
+        directions = ['N', 'E', 'S', 'W']
+        # get board color at self.position
+        curr_color = (0, 0, 0)
+        index = directions.index(self.direction)
+
+        if self.colours[curr_color] == 'R':
+            new_dir = directions[(index + 1) % 4]
+        else:
+            new_dir = directions[(index - 1) % 4]
+
+        # set board color to curr_color + gradient
+        self.direction = new_dir
         return None
