@@ -2,7 +2,7 @@
 This file is Copyright (c) 2021 Siddarth Dagar, Daniel Zhu, Ryan Alizadeh, and Bradley Mathi.
 """
 import random
-
+from typing import Any
 
 class Ant:
     """
@@ -49,25 +49,18 @@ class Ant:
         This updates the ant's current position with the new one.
         """
         self.pos = new_pos
+        return None
 
     def update_direction(self, new_dir) -> None:
         """
         This updates the ant's current direction with the new one.
         """
-<<<<<<< HEAD
-        directions = ['N', 'E', 'S', 'W']
-        # get board color at self.position
-        curr_color = (0, 0, 0)
-        index = directions.index(self.direction)
-
-        if self.colours[curr_color] == 'R':
-            new_dir = directions[(index + 1) % 4]
-        else:
-            new_dir = directions[(index - 1) % 4]
-
-        # set board color to curr_color + gradient
         self.direction = new_dir
         return None
-=======
-        self.direction = new_dir
->>>>>>> main
+
+    def get_next_color(self, color) -> Any:
+        """
+        This function finds the color in the cycle after the color parameter and returns that. most
+        likely will be done by using gradient.
+        """
+        raise NotImplementedError()

@@ -13,9 +13,12 @@ class Board:
      Instance Attributes:
         - ant: The ant object that will be moving on the board
     """
+    ant: Ant
+    arr: list
 
     def __init__(self, ant: Ant) -> None:
         self.ant = ant
+        self.arr = constants.STARTING_BOARD
 
     def draw_board(self, rows: int, cols: int, window) -> None:
         """
@@ -62,13 +65,13 @@ class Board:
         y = ant.pos[1]
 
         if ant.direction == 'N':
-            ant.pos = (x, y + 1)
+            ant.update_pos((x, y + 1))
         elif ant.direction == 'S':
-            ant.pos = (x, y - 1)
+            ant.update_pos((x, y - 1))
         elif ant.direction == 'E':
-            ant.pos = (x + 1, y)
+            ant.update_pos((x + 1, y))
         elif ant.direction == 'W':
-            ant.pos = (x - 1, y)
+            ant.update_pos((x - 1, y))
         else:
             raise Exception("Invalid Direction Present")
 
@@ -78,15 +81,21 @@ class Board:
         the ant's direction.
          """
         ant = self.ant
+        x = ant.pos[0]
+        y = ant.pos[1]
         directions = ['N', 'E', 'S', 'W']
-        # get board color at self.position
-        curr_color = (0, 0, 0)
+
+        arr_midpoint = len(self.arr) // 2 # assumes that self.arr is a square of odd length
+        curr_color = self.arr[arr_midpoint + x][arr_midpoint + y]
         index = directions.index(ant.direction)
 
         if ant.colours[curr_color] == 'R':
             new_dir = directions[(index + 1) % 4]
-        else:
+        elif ant.colours[curr_color] == 'L':
             new_dir = directions[(index - 1) % 4]
+        else:
+            raise Exception("Invalid Command Present")
 
-        # set board color to curr_color + gradient
         ant.direction = new_dir
+        self.arr[arr_midpoint + x][arr_midpoint + y] = ant.get_next_color(curr_color)
+        self.update_ant_pos()
