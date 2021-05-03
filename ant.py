@@ -59,4 +59,7 @@ class Ant:
         This function finds the color in the cycle after the color parameter and returns that. most
         likely will be done by using self.gradient.
         """
-        raise NotImplementedError()
+        if color + self.gradient <= 0xffffff:
+            return color + self.gradient
+        else:
+            return 0x000000
