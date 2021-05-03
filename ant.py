@@ -16,7 +16,7 @@ class Ant:
 
     def __init__(self, commands: str = 'RL', pos: tuple = (0, 0)):
         self.commands = commands
-        self.gradient = 255 // (len(commands) - 1) # this needs to be updated to hex
+        self.gradient = 0xffffff // (len(commands) - 1)
         self.pos = pos
         self.direction = random.choice(['N', 'S', 'E', 'W'])
         self.colours = self._get_colour_construction(commands)
@@ -33,14 +33,11 @@ class Ant:
     def _get_colour_construction(self, commands: str) -> dict:
         """
         This should return a dictionary that maps the colours to their respective command.
-        :param commands:
-        :return:
         """
-        gradient = 0xffffff // (len(commands) - 1)
         mapping = {}
 
         for i, command in enumerate(commands):
-            colour = gradient * i
+            colour = self.gradient * i
             mapping[colour] = command
 
         return mapping
@@ -60,6 +57,6 @@ class Ant:
     def get_next_color(self, color) -> Any:
         """
         This function finds the color in the cycle after the color parameter and returns that. most
-        likely will be done by using gradient.
+        likely will be done by using self.gradient.
         """
         raise NotImplementedError()
