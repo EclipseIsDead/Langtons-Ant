@@ -30,22 +30,8 @@ class Board:
 
         for row in range(rows):
             for col in range(cols):
-                pygame.draw.rect(window, pygame.Color("#5D5D5D"), (row * square_size,
-                                                                   col * square_size,
-                                                                   square_size,
-                                                                   square_size), LINE_THICC)
-
-    def draw_pieces(self, rows: int, cols: int, board: list[list], window) -> None:
-        """
-        A function that draws pieces onto the board
-        """
-        square_size = WIDTH // rows
-
-        for row in range(rows):
-            for col in range(cols):
-                pygame.draw.rect(window, pygame.Color(board[row][col]),
-                                 (col * square_size + LINE_THICC,
-                                  row * square_size + LINE_THICC,
+                pygame.draw.rect(window, pygame.Color('#' + self.arr[row][col][2:]),
+                                 (row * square_size, col * square_size,
                                   square_size - (2 * LINE_THICC),
                                   square_size - (2 * LINE_THICC)), 0)
 
@@ -109,12 +95,12 @@ class Board:
         self.arr[arr_midpoint + x][arr_midpoint + y] = ant.get_next_color(curr_color)
         self.update_ant_pos()
 
-    def increase_board(self, board: list[list]) -> list[list]:
+    def increase_board(self) -> None:
         """
         Increases the board by 3 times its size, keeping the original board in the middle of the
         new one
         """
-        len_rol_col = len(board)
+        len_rol_col = len(self.arr)
         new_board = []
 
         # Creates a new array 3 times the previous board's that is filled with 0's
@@ -122,17 +108,17 @@ class Board:
             list_so_far = []
 
             for col in range(3 * len_rol_col):
-                list_so_far.append(0)
+                list_so_far.append("0xFFFFFF")
 
             new_board.append(list_so_far)
 
         # Place the appropriate values in the center of the array
         for row in range(len_rol_col):
             for col in range(len_rol_col):
-                new_board[row + len_rol_col][col + len_rol_col] = board[row][col]
+                new_board[row + len_rol_col][col + len_rol_col] = self.arr[row][col]
 
         # Updates new ant position on the board
         ant_row, ant_col = self.ant.pos[0], self.ant.pos[1]
         self.ant.pos = (ant_row + len_rol_col, ant_col + len_rol_col)
 
-        return new_board
+        self.arr = new_board

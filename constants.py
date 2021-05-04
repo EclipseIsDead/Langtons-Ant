@@ -5,6 +5,6 @@ WIDTH, HEIGHT = 1200, 1200
 ROWS, COLS = 3, 3
 LINE_THICC = 1
 
-STARTING_BOARD = [["0xffffff", "0xffffff", "0xffffff"],
-                  ["0xffffff", "0x000000", "0xffffff"],
-                  ["0xffffff", "0xffffff", "0xffffff"]]
+STARTING_BOARD = [["0xFFFFFF", "0xFFFFFF", "0xFFFFFF"],
+                  ["0xFFFFFF", "0x4A4A4A", "0xFFFFFF"],
+                  ["0xFFFFFF", "0xFFFFFF", "0xFFFFFF"]]
