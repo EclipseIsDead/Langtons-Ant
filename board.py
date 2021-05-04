@@ -121,4 +121,9 @@ class Board:
             for col in range(len_rol_col):
                 new_board[row + len_rol_col][col + len_rol_col] = board[row][col]
 
+        # Updates new ant position on the board
+        ant_row, ant_col = self.ant.pos[0], self.ant.pos[1]
+        self.ant.pos = (ant_row + len_rol_col, ant_col + len_rol_col)
+
         return new_board
+
