@@ -98,3 +98,27 @@ class Board:
         ant.direction = new_dir
         self.arr[arr_midpoint + x][arr_midpoint + y] = ant.get_next_color(curr_color)
         self.update_ant_pos()
+
+    def increase_board(self, board: list[list]) -> list[list]:
+        """
+        Increases the board by 3 times its size, keeping the original board in the middle of the
+        new one
+        """
+        len_rol_col = len(board)
+        new_board = []
+
+        # Creates a new array 3 times the previous board's that is filled with 0's
+        for row in range(3 * len_rol_col):
+            list_so_far = []
+
+            for col in range(3 * len_rol_col):
+                list_so_far.append(0)
+
+            new_board.append(list_so_far)
+
+        # Place the appropriate values in the center of the array
+        for row in range(len_rol_col):
+            for col in range(len_rol_col):
+                new_board[row + len_rol_col][col + len_rol_col] = board[row][col]
+
+        return new_board
