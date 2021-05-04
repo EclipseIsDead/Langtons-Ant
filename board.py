@@ -49,11 +49,21 @@ class Board:
                                   square_size - (2 * LINE_THICC),
                                   square_size - (2 * LINE_THICC)), 0)
 
-    def draw_ant(self) -> None:
+    def draw_ant(self, rows: int, window) -> None:
         """
         This function draws the ant on the board, but without obscuring the square it is on.
         """
-        raise NotImplementedError
+        square_size = WIDTH // rows
+        ant_size = square_size // 2
+
+        # Makes the ant image
+        big_ant = pygame.image.load("ant.png")
+        ant_img = pygame.transform.scale(big_ant, (ant_size, ant_size))
+
+        # Draws the ant image
+        window.blit(ant_img, (self.ant.pos[0] * square_size + square_size // 4,
+                              self.ant.pos[1] * square_size + square_size // 4))
+        pygame.display.flip()
 
     def update_ant_pos(self) -> None:
         """
@@ -126,4 +136,3 @@ class Board:
         self.ant.pos = (ant_row + len_rol_col, ant_col + len_rol_col)
 
         return new_board
-

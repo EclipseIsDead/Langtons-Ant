@@ -31,13 +31,15 @@ def main(commands: str):
                 pygame.quit()
                 exit()
 
-            board.draw_board(rows, cols, WIN)
-            # board.draw_pieces(rows, cols, STARTING_BOARD, WIN)
-            pygame.display.update()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                board.draw_board(rows, cols, WIN)
+                board.draw_ant(rows, WIN)
+                # board.draw_pieces(rows, cols, STARTING_BOARD, WIN)
+                pygame.display.update()
 
-            rows, cols = rows * 3, cols * 3
+                rows, cols = rows * 3, cols * 3
 
-            pygame.time.wait(1000)
+                pygame.time.wait(1000)
 
 
 if __name__ == '__main__':

@@ -14,7 +14,7 @@ class Ant:
     direction: str
     gradient: int
 
-    def __init__(self, commands: str = 'RL', pos: tuple = (0, 0)):
+    def __init__(self, commands: str = 'RL', pos: tuple = (1, 1)):
         self.commands = commands
         self.gradient = 0xffffff // (len(commands) - 1)
         self.pos = pos
