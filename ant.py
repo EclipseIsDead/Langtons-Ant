@@ -17,7 +17,7 @@ class Ant:
 
     def __init__(self, commands: str = 'RL', pos: tuple = (1, 1)):
         self.commands = commands
-        self.gradient = 0xffffff // (len(commands) - 1)
+        self.gradient = 255 // (len(commands) - 1)
         self.pos = pos
         self.direction = random.choice(['N', 'S', 'E', 'W'])
         self.colours = self._get_colour_construction(commands)
@@ -38,7 +38,7 @@ class Ant:
         mapping = {}
 
         for i, command in enumerate(commands):
-            colour = self.gradient * i
+            colour = (self.gradient * i, self.gradient * i, self.gradient * i)
             mapping[colour] = command
 
         return mapping
