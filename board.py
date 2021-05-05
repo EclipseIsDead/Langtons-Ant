@@ -133,8 +133,7 @@ class Board:
         x = ant.pos[0]
         y = ant.pos[1]
 
-        if x == (len(self.arr)//2) or x == -(len(self.arr) // 2) or \
-                y == (len(self.arr) // 2) or y == -(len(self.arr) // 2):
+        if x == 0 or x == len(self.arr) or y == 0 or y == len(self.arr):
             return True
         else:
             return False
