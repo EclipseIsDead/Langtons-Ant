@@ -132,8 +132,9 @@ class Board:
         ant = self.ant
         x = ant.pos[0]
         y = ant.pos[1]
+        max_edge = len(self.arr) - 1
 
-        if x == 0 or x == len(self.arr) or y == 0 or y == len(self.arr):
+        if x == 0 or x == max_edge or y == 0 or y == max_edge:
             return True
         else:
             return False
