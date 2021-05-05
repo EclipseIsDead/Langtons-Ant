@@ -81,8 +81,8 @@ class Board:
         y = ant.pos[1]
         directions = ['N', 'E', 'S', 'W']
 
-        arr_midpoint = len(self.arr) // 2  # assumes that self.arr is a square of odd length
-        curr_color = self.arr[arr_midpoint + x][arr_midpoint + y]
+        # arr_midpoint = len(self.arr) // 2  # assumes that self.arr is a square of odd length
+        curr_color = self.arr[x][y]  # curr_color = self.arr[arr_midpoint + x][arr_midpoint + y]
         index = directions.index(ant.direction)
 
         if ant.colours[curr_color] == 'R':
@@ -93,8 +93,8 @@ class Board:
             raise Exception("Invalid Command Present")
 
         ant.direction = new_dir
-        self.arr[arr_midpoint + x][arr_midpoint + y] = ant.get_next_color(curr_color)
-        self.update_ant_pos()
+        # self.arr[arr_midpoint + x][arr_midpoint + y] = ant.get_next_color(curr_color)
+        self.arr[x][y] = ant.get_next_color(curr_color)
 
     def increase_board(self) -> None:
         """
