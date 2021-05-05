@@ -4,6 +4,7 @@ This file is Copyright (c) 2021 Siddarth Dagar, Daniel Zhu, Ryan Alizadeh, and B
 import random
 from typing import Any
 
+
 class Ant:
     """
     This is the ant.

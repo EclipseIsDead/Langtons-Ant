@@ -8,10 +8,11 @@ from constants import *
 
 class Board:
     """
-    This is the Board Class
+    This is the Board Class.
 
      Instance Attributes:
         - ant: The ant object that will be moving on the board
+        - arr: The list of lists representation of the board
     """
     ant: Ant
     arr: list
@@ -122,3 +123,18 @@ class Board:
         self.ant.pos = (ant_row + len_rol_col, ant_col + len_rol_col)
 
         self.arr = new_board
+
+    def check_edge(self) -> bool:
+        """
+        This function should check whether the ant is on the edge of the current board and return
+        said check as a boolean value.
+        """
+        ant = self.ant
+        x = ant.pos[0]
+        y = ant.pos[1]
+
+        if x == (len(self.arr)//2) or x == -(len(self.arr) // 2) or \
+                y == (len(self.arr) // 2) or y == -(len(self.arr) // 2):
+            return True
+        else:
+            return False
