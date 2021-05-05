@@ -57,10 +57,10 @@ class Ant:
 
     def get_next_color(self, color) -> Any:
         """
-        This function finds the color in the cycle after the color parameter and returns that. most
+        This function finds the color in the cycle after the color parameter and returns that. Most
         likely will be done by using self.gradient.
         """
-        if color + self.gradient <= 0xffffff:
+        if color + (self.gradient, self.gradient, self.gradient) <= (255, 255, 255):
             return color + self.gradient
         else:
-            return 0x000000
+            return (255, 255, 255)
