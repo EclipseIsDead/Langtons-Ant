@@ -34,13 +34,13 @@ def main(commands: str):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 board.draw_board(rows, cols, WIN)
                 board.draw_ant(rows, WIN)
-                # board.draw_pieces(rows, cols, STARTING_BOARD, WIN)
-                pygame.display.update()
 
                 rows, cols = (rows * 3), (cols * 3)
                 board.increase_board()
 
                 pygame.time.wait(1000)
+
+            pygame.display.update()
 
 
 if __name__ == '__main__':

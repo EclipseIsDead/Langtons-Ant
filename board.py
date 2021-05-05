@@ -25,13 +25,13 @@ class Board:
         """
         A function that draws the initial board
         """
-        window.fill(pygame.Color("#3A3A3A"))
+        window.fill(pygame.Color((255, 153, 153)))
 
         square_size = WIDTH // rows
 
         for row in range(rows):
             for col in range(cols):
-                pygame.draw.rect(window, pygame.Color('#' + self.arr[row][col][2:]),
+                pygame.draw.rect(window, pygame.Color(self.arr[row][col]),
                                  (row * square_size, col * square_size,
                                   square_size - (2 * LINE_THICC),
                                   square_size - (2 * LINE_THICC)), 0)
@@ -109,7 +109,7 @@ class Board:
             list_so_far = []
 
             for col in range(3 * len_rol_col):
-                list_so_far.append("0xFFFFFF")
+                list_so_far.append((255, 204, 204))
 
             new_board.append(list_so_far)
 

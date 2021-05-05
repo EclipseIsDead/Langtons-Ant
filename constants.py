@@ -5,6 +5,6 @@ WIDTH, HEIGHT = 729, 729
 ROWS, COLS = 3, 3
 LINE_THICC = 1
 
-STARTING_BOARD = [["0xFFFFFF", "0xFFFFFF", "0xFFFFFF"],
-                  ["0xFFFFFF", "0x4A4A4A", "0xFFFFFF"],
-                  ["0xFFFFFF", "0xFFFFFF", "0xFFFFFF"]]
+STARTING_BOARD = [[(255, 204, 204), (255, 204, 204), (255, 204, 204)],
+                  [(255, 204, 204), (255, 102, 102), (255, 204, 204)],
+                  [(255, 204, 204), (255, 204, 204), (255, 204, 204)]]
