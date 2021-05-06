@@ -34,6 +34,9 @@ def main(commands: str):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 board.draw_board(rows, cols, WIN)
                 board.draw_ant(rows, WIN)
+                # something wrong, i can feel it!
+                board.update_ant_dir()
+                board.update_ant_pos()
 
                 rows, cols = (rows * 3), (cols * 3)
                 board.increase_board()

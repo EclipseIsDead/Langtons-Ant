@@ -5,6 +5,7 @@ WIDTH, HEIGHT = 729, 729
 ROWS, COLS = 3, 3
 LINE_THICC = 1
 
-STARTING_BOARD = [[(255, 204, 204), (255, 204, 204), (255, 204, 204)],
-                  [(255, 204, 204), (255, 102, 102), (255, 204, 204)],
-                  [(255, 204, 204), (255, 204, 204), (255, 204, 204)]]
+# STARTING BOARD IS OBSOLETE, IT GENERATES BOARD BASED ON FIRST AND LAST KEYS IN THE COLOUR DICT
+STARTING_BOARD = [[(255, 255, 255), (255, 255, 255), (255, 255, 255)],
+                  [(255, 255, 255), (0, 0, 0), (255, 255, 255)],
+                  [(255, 255, 255), (255, 255, 255), (255, 255, 255)]]

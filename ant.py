@@ -55,12 +55,12 @@ class Ant:
         """
         self.direction = new_dir
 
-    def get_next_color(self, color) -> Any:
+    def get_next_color(self, color) -> tuple:
         """
         This function finds the color in the cycle after the color parameter and returns that. Most
         likely will be done by using self.gradient.
         """
         if color + (self.gradient, self.gradient, self.gradient) <= (255, 255, 255):
-            return color + self.gradient
+            return color + (self.gradient, self.gradient, self.gradient)
         else:
             return (255, 255, 255)

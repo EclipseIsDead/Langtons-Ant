@@ -15,11 +15,15 @@ class Board:
         - arr: The list of lists representation of the board
     """
     ant: Ant
+    colours: list
     arr: list
 
     def __init__(self, ant: Ant) -> None:
         self.ant = ant
-        self.arr = STARTING_BOARD
+        self.colours = list(ant.colours)
+        self.arr = [[self.colours[len(self.colours) - 1], self.colours[len(self.colours) - 1], self.colours[len(self.colours) - 1]],
+                    [self.colours[len(self.colours) - 1], self.colours[0], self.colours[len(self.colours) - 1]],
+                    [self.colours[len(self.colours) - 1], self.colours[len(self.colours) - 1], self.colours[len(self.colours) - 1]]]
 
     def draw_board(self, rows: int, cols: int, window) -> None:
         """
@@ -31,7 +35,8 @@ class Board:
 
         for row in range(rows):
             for col in range(cols):
-                pygame.draw.rect(window, pygame.Color(self.arr[row][col]),
+                item = self.arr[row][col]
+                pygame.draw.rect(window, pygame.Color(item[0], item[1], item[2]),
                                  (row * square_size, col * square_size,
                                   square_size - (2 * LINE_THICC),
                                   square_size - (2 * LINE_THICC)), 0)
