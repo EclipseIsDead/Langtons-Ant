@@ -31,17 +31,17 @@ def main(commands: str):
                 pygame.quit()
                 exit()
 
-            board.draw_board(rows, cols, WIN)
-            board.draw_ant(rows, WIN)
+        board.draw_board(rows, cols, WIN)
+        board.draw_ant(rows, WIN)
 
-            board.update_ant_dir()
-            board.update_ant_pos()
+        board.update_ant_dir()
+        board.update_ant_pos()
 
-            if board.check_edge():
-                rows, cols = (rows * 3), (cols * 3)
-                board.increase_board()
+        if board.check_edge():
+            rows, cols = (rows * 3), (cols * 3)
+            board.increase_board()
 
-            pygame.display.update()
+        pygame.display.update()
 
 
 if __name__ == '__main__':
