@@ -60,7 +60,7 @@ class Ant:
         This function finds the color in the cycle after the color parameter and returns that. Most
         likely will be done by using self.gradient.
         """
-        if color + (self.gradient, self.gradient, self.gradient) <= (255, 255, 255):
-            return color + (self.gradient, self.gradient, self.gradient)
+        if (color[0] + self.gradient, color[1] + self.gradient, color[2] + self.gradient) <= (255, 255, 255):
+            return (color[0] + self.gradient, color[1] + self.gradient, color[2] + self.gradient)
         else:
             return (255, 255, 255)

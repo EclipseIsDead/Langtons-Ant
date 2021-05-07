@@ -38,10 +38,9 @@ def main(commands: str):
                 board.update_ant_dir()
                 board.update_ant_pos()
 
-                rows, cols = (rows * 3), (cols * 3)
-                board.increase_board()
-
-                pygame.time.wait(1000)
+                if board.check_edge():
+                    rows, cols = (rows * 3), (cols * 3)
+                    board.increase_board()
 
             pygame.display.update()
 

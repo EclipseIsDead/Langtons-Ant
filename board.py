@@ -35,8 +35,7 @@ class Board:
 
         for row in range(rows):
             for col in range(cols):
-                item = self.arr[row][col]
-                pygame.draw.rect(window, pygame.Color(item[0], item[1], item[2]),
+                pygame.draw.rect(window, pygame.Color(self.arr[row][col]),
                                  (row * square_size, col * square_size,
                                   square_size - (2 * LINE_THICC),
                                   square_size - (2 * LINE_THICC)), 0)
@@ -114,7 +113,7 @@ class Board:
             list_so_far = []
 
             for col in range(3 * len_rol_col):
-                list_so_far.append((255, 204, 204))
+                list_so_far.append((255, 255, 255))
 
             new_board.append(list_so_far)
 
