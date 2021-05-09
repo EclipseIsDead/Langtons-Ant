@@ -21,9 +21,9 @@ class Board:
     def __init__(self, ant: Ant) -> None:
         self.ant = ant
         self.colours = list(ant.colours)
-        self.arr = [[self.colours[len(self.colours) - 1], self.colours[len(self.colours) - 1], self.colours[len(self.colours) - 1]],
-                    [self.colours[len(self.colours) - 1], self.colours[0], self.colours[len(self.colours) - 1]],
-                    [self.colours[len(self.colours) - 1], self.colours[len(self.colours) - 1], self.colours[len(self.colours) - 1]]]
+        self.arr = [[self.colours[-1], self.colours[-1], self.colours[-1]],
+                    [self.colours[-1], self.colours[ 0], self.colours[-1]],
+                    [self.colours[-1], self.colours[-1], self.colours[-1]]]
 
     def draw_board(self, rows: int, cols: int, window) -> None:
         """
@@ -113,7 +113,7 @@ class Board:
             list_so_far = []
 
             for col in range(3 * len_rol_col):
-                list_so_far.append((255, 255, 255))
+                list_so_far.append(self.colours[-1])
 
             new_board.append(list_so_far)
 
