@@ -13,7 +13,7 @@ pygame.display.set_caption('Langton\'s Ant')
 FPS = 60
 
 
-def main(commands: str):
+def main(commands: dict):
     """
     The main function responsible for running and simulating the ant's movements
     """
@@ -46,13 +46,18 @@ def main(commands: str):
 
 if __name__ == '__main__':
     while True:
-        data = input('Please input a sequence of commands in the format of LRLRRRL, for example,'
-                     + '\n' +
-                     'greater than 2 commands, or characters, in length:')
-        if not (len(data) >= 2):
-            print("Invalid command entered, not long enough.")
+        colour = {}
+        num = int(input('Please enter the desired length of the ant cycle (minimum of 2):'))
+        for i in range(num):
+            key = input("Enter colour in the exact format of R,G,B for the ant to use:")
+            tuptup = tuple(key.split(","))
+            value = input("Enter either L or R for what the ant should do at that colour:")
+            colour[tuptup] = value
+
+        if not (len(colour) >= 2):
+            print("Invalid dict entered, not long enough.")
             continue
         else:
             # we're happy with the value given
-            main(data)
+            main(colour)
             break
