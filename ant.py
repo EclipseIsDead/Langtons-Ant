@@ -11,11 +11,13 @@ class Ant:
     pos: tuple
     direction: str
     colours: dict
+    order: list
 
-    def __init__(self, colours: dict, pos: tuple = (1, 1)):
+    def __init__(self, colours: dict, ordered_colours: list, pos: tuple = (1, 1)):
         self.pos = pos
         self.direction = random.choice(['N', 'S', 'E', 'W'])
         self.colours = colours
+        self.order = ordered_colours
 
     def __repr__(self):
         return "Ant()"
