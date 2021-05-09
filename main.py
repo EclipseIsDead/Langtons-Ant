@@ -51,7 +51,7 @@ if __name__ == '__main__':
         num = int(input('Please enter the desired length of the ant cycle (minimum of 2):'))
         for i in range(num):
             key = input("Enter colour in the exact format of R,G,B for the ant to use:")
-            tuptup = tuple(key.split(","))
+            tuptup = tuple(int(e) for e in key.split(","))
             value = input("Enter either L or R for what the ant should do at that colour:")
             colour[tuptup] = value
             ordered_colours.append(tuptup)
